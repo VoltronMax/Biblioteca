@@ -31,4 +31,19 @@ public class Usuario {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
+
+    public void setTelefono(String telefono){
+        this.telefono = telefono;
+    }
+
+    public void setCorreo(String correo){
+        this.correo = correo;
+    }
+
+    public String mostrarUsuario(){
+        return "Nombre usuario: " + nombre +
+                "Telefono: " + telefono +
+                "Correo: " + correo;
+
+    }
 }
