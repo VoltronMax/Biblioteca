@@ -41,15 +41,27 @@ public LocalDate getFechaDevolucionEstimada(){
 
 public boolean isDevuelto(){
     return devuelto;
+
 }
+
+public boolean marcarComoDevuelto(){
+    devuelto=true;
+    return devuelto;
+
+}
+
+    public boolean estaVencido(){
+    return LocalDate.now().isAfter(fechaDevolucionEstimada) && !devuelto;
+
+    }
 
 //Setters
 
-    public void Setlibro(Libro libro){
+    public void setLibro(Libro libro){
     this.libro = libro;
     }
 
-    public void SetUsuario(Usuario usuario){
+    public void setUsuario(Usuario usuario){
     this.usuario = usuario;
     }
 
@@ -66,8 +78,8 @@ public boolean isDevuelto(){
     }
 
     public String resumenPrestamo(){
-    return "Nombre del libro: " + libro +
-            "\nNombre del usuario: " + usuario +
+    return "Nombre del libro: " + libro.getTitulo() +
+            "\nNombre del usuario: " + usuario.getNombre() +
             "\nFecha del prestamo: " + fechaPrestamo +
             "\nFecha de devolucion: " + fechaDevolucionEstimada +
             "\nEl libro ha sido devuelto?" + (devuelto ? "Si" : "No");
